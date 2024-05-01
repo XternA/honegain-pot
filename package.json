@@ -1,0 +1,17 @@
+{
+  "name": "honeygain-pot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "run.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "types": "module",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "dotenv": "^16.4.5",
+    "puppeteer": "^22.7.1"
+  },
+  "devDependencies": {}
+}
