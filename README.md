@@ -3,14 +3,14 @@
 ### Containerised docker image for [Honeygain](https://bit.ly/3x6nX1S) lucky pot 🍯
 >**Note:** This is an unofficial build and comes with no warranty of any kind. By using this image you also agree to Honeygain's T&C.
 
-This is a simple Docker image for installing Honeygain's lucky pot auto-claim script as a container.
+This is a simple Docker image for installing Honeygain's Lucky Pot auto-claim script as a container.
 
 ## Overview 🐝
 [**Honeygain-Pot**](https://bit.ly/3x6nX1S) 🍯 is a script (bot) powered by NodeJS, JavaScript and Shell scripting to automatically claim your lucky pot bonus daily from [**Honeygain**](https://bit.ly/3x6nX1S)🐝.
 
 The script is designed to be run in a docker environment, allowing it to be deployed alongside the Honeygain docker container.
 
-It uses very minimal resources,resulting in the CPU utilisation staying at idle **0%** almost all the time.
+It uses very minimal resources, resulting in the CPU utilisation staying at idle **0%** the entire time unless logging into the website.
 
 > This script comes pre-deployed with [**Income Generator**](https://github.com/XternA/income-generator). A tool which consolidates and earns passive income from multiple sources.
 
