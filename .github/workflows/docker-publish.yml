@@ -45,4 +45,4 @@ jobs:
           push: true
           tags: |
             xterna/${{ github.event.repository.name }}:latest
-            xterna/${{ github.event.repository.name }}:${{ github.ref_name }}
+            xterna/${{ github.event.repository.name }}:${{ current_version }}
