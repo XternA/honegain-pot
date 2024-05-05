@@ -11,7 +11,10 @@ This is a simple Docker image for installing Honeygain's Lucky Pot auto-claim sc
 The script is designed to be run in a docker environment, allowing it to be deployed alongside the Honeygain docker container.
 
 It uses very minimal resources, resulting in the CPU utilisation staying at idle **0%** the entire time unless logging into the website.
-
+```
+CONTAINER ID   NAME            CPU %     MEM USAGE / LIMIT   MEM %     NET I/O         BLOCK I/O     PIDS
+33d34f74cd0e   honeygain-pot   0.20%     3.02MiB / 320MiB    0.94%     3.3MB / 206kB   0B / 43.6MB   3
+```
 > This script comes pre-bundled with [**Income Generator**](https://github.com/XternA/income-generator). A tool which consolidates and earns passive income from multiple sources.
 
 ## Features 🚀
