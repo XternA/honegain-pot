@@ -5,6 +5,8 @@
 
 This is a simple Docker image for installing Honeygain's Lucky Pot auto-claim script as a container.
 
+#### If you like this project, don't forget to leave a star. ⭐
+
 ## Overview 🐝
 [**Honeygain-Pot**](https://bit.ly/3x6nX1S) 🍯 is a script (bot) powered by NodeJS, JavaScript and Shell scripting to automatically claim your lucky pot bonus daily from [**Honeygain**](https://bit.ly/3x6nX1S)🐝.
 
