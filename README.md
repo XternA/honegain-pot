@@ -105,6 +105,13 @@ Execute where compose file is located.
 docker compose up -d
 ```
 
+ℹ️ **Note:** If you apply resource limits such as CPU and RAM you need to set the following bare minimum:
+```
+  - cpu=0.6
+  - mem_limit=200m
+```
+The script wont be able to run and will constantly timeout if the CPU limit is set anything lower than recommended. This is only required during the bootup phase where it needs to spin up a headless browser to connect to the site. Resource is most intensive during this phase.
+
 ### Docker run
 Via environment variable or Dotenv `.env` defined e.g.
 ```sh
