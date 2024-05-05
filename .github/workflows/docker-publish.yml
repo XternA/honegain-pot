@@ -15,7 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Check if package.json version is bumped
+      - name: Check Version
         id: check-version
         run: |
           current_version=$(jq -r .version package.json)
@@ -23,6 +23,7 @@ jobs:
 
           if [ "$current_version" != "$previous_version" ]; then
             echo "Package.json version bumped. Proceeding with Docker build."
+            echo "BUILD_VERISON="$current_version" >> "$GITHUB_OUTPUT"
           else
             echo "Package.json version unchanged. Skipping Docker build."
             exit 0
@@ -47,4 +48,4 @@ jobs:
           push: true
           tags: |
             xterna/${{ github.event.repository.name }}:latest
-            xterna/${{ github.event.repository.name }}${ env.$VERSION }}
+            xterna/${{ github.event.repository.name }}${ steps.check-version.outputs.BUILD_VERISON }}
