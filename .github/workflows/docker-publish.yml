@@ -2,8 +2,6 @@ name: Docker publish
 
 on:
   push:
-    branches:
-      - main
     tags:
       - "*"
 
@@ -15,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Check version changed before building
+      - name: Check version changed before allowing build
         id: check-version
         run: |
           current_version=$(jq -r .version package.json)
@@ -23,11 +21,13 @@ jobs:
 
           if [ "$current_version" != "$previous_version" ]; then
             echo "Package.json version bumped. Proceeding with Docker build."
-            echo "BUILD_VERSION=$current_version" >> "$GITHUB_OUTPUT"
           else
             echo "Package.json version unchanged. Skipping Docker build."
             exit 0
           fi
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -40,12 +40,10 @@ jobs:
 
       - name: Build and push image tags
         uses: docker/build-push-action@v5
-        env:
-          VERSION: $(jq -r .version package.json)
         with:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
             xterna/${{ github.event.repository.name }}:latest
-            xterna/${{ github.event.repository.name }}${ steps.check-version.outputs.BUILD_VERSION }}
+            xterna/${{ github.event.repository.name }}:${{ github.ref_name }}
