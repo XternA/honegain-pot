@@ -12,14 +12,14 @@ The script is designed to be run in a docker environment, allowing it to be depl
 
 It uses very minimal resources, resulting in the CPU utilisation staying at idle **0%** the entire time unless logging into the website.
 
-> This script comes pre-deployed with [**Income Generator**](https://github.com/XternA/income-generator). A tool which consolidates and earns passive income from multiple sources.
+> This script comes pre-bundled with [**Income Generator**](https://github.com/XternA/income-generator). A tool which consolidates and earns passive income from multiple sources.
 
 ## Features 🚀
 - Automatically log in and claim daily lucky pot.
-- Finds out the remaining time before next claim.
-- Set up timer and auto wait for the duration.
+- Find out the remaining time before the next claim.
+- Set up the timer and auto-wait for the duration.
 - On ready to reclaim, repeat the cycle.
-- If error occurs, will cooldown and re-attempt.
+- If an error occurs, will cool down and re-attempt.
 
 ### Output 🖥️
 This is what the script looks like when you inspect the output.
