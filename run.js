@@ -70,7 +70,7 @@ async function getRemainingTimer(page) {
 
         const remainingTime = parseTime(waitTimer);
         if (remainingTime) {
-            console.log(`${Colours.GREEN}Already claimed, so waiting for next available pot 🍯${Colours.RESET}`);
+            console.log(`${Colours.GREEN}Waiting for next available pot to claim 🍯${Colours.RESET}`);
             let remainingSeconds = remainingTime.hours * 3600 + remainingTime.minutes * 60 + remainingTime.seconds;
 
             if (remainingSeconds > 0) {
