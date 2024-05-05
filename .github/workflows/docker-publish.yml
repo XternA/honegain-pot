@@ -15,7 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Check Version
+      - name: Check version changed before building
         id: check-version
         run: |
           current_version=$(jq -r .version package.json)
