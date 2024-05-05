@@ -4,7 +4,7 @@ const api = require('./modules/api');
 const fs = require('fs');
 require('dotenv').config();
 
-const NAVIGATION_TIMEOUT = 1000;
+const NAVIGATION_TIMEOUT = 200;
 const URL = 'https://dashboard.honeygain.com/login'
 const EMAIL = process.env.EMAIL;
 const PASSWORD = process.env.PASSWORD;
@@ -111,7 +111,7 @@ async function getRemainingTimer(page) {
         ],
     });
     const page = await browser.newPage();
-    await page.goto(URL);
+    await page.goto(URL, { waitUntil: 'networkidle2', timeout: 60000 });
 
     // Cookie consent
     await page.waitForSelector('.sc-gKAaef.eFCJQX');
