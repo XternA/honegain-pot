@@ -23,7 +23,7 @@ jobs:
 
           if [ "$current_version" != "$previous_version" ]; then
             echo "Package.json version bumped. Proceeding with Docker build."
-            echo "BUILD_VERISON="$current_version" >> "$GITHUB_OUTPUT"
+            echo "BUILD_VERSION=$current_version" >> "$GITHUB_OUTPUT"
           else
             echo "Package.json version unchanged. Skipping Docker build."
             exit 0
@@ -48,4 +48,4 @@ jobs:
           push: true
           tags: |
             xterna/${{ github.event.repository.name }}:latest
-            xterna/${{ github.event.repository.name }}${ steps.check-version.outputs.BUILD_VERISON }}
+            xterna/${{ github.event.repository.name }}${ steps.check-version.outputs.BUILD_VERSION }}
