@@ -43,7 +43,7 @@ Time remaining: 0 hours 0 minutes 0 seconds ⏱️
 Ready to claim again ✅
 ```
 
-## Usage
+## Usage 📃
 Define the following environment variable to bootstrap the image.
 
 | Variable | Description | Mandatory |
@@ -57,7 +57,7 @@ EMAIL=<email_address>
 PASSWORD=<password_credential>
 ```
 
-## Docker Deployment
+## Docker Deployment 🐋
 ### Docker Compose
 Via `compose.yml`
 ```yaml
