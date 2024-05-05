@@ -110,7 +110,7 @@ docker compose up -d
   - cpu=0.6
   - mem_limit=200m
 ```
-The script wont be able to run and will constantly timeout if the CPU limit is set anything lower than recommended. This is only required during the bootup phase where it needs to spin up a headless browser to connect to the site. Resource is most intensive during this phase.
+The script won't be able to run and will constantly timeout if the CPU limit is set anything lower than recommended. This is only required during the bootup phase where it needs to spin up a headless browser to connect to the site. Resource is most intensive during this phase.
 
 ### Docker run
 Via environment variable or Dotenv `.env` defined e.g.
