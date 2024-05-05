@@ -1,10 +1,10 @@
 const puppeteer = require('puppeteer');
-const { Colours } = require('./modules/shared');
+const { Colours, BANNER } = require('./modules/shared');
 const api = require('./modules/api');
 const fs = require('fs');
 require('dotenv').config();
 
-const NAVIGATION_TIMEOUT = 50;
+const NAVIGATION_TIMEOUT = 1000;
 const URL = 'https://dashboard.honeygain.com/login'
 const EMAIL = process.env.EMAIL;
 const PASSWORD = process.env.PASSWORD;
@@ -50,7 +50,7 @@ async function getHoneygainBalance(page, accessToken) {
 
 async function getRemainingTimer(page) {
     const waitTimer = await page.evaluate(() => {
-        const element = document.querySelector('.sc-biJnzT.ehLZRc');
+        const element = document.querySelector('.sc-jHcYKR.hUOVCo');
         return element ? element.textContent : null;
     });
 
@@ -78,8 +78,7 @@ async function getRemainingTimer(page) {
                 const minutes = Math.floor((remainingSeconds % 3600) / 60);
                 const seconds = remainingSeconds % 60;
                 if (PROCESS_WAIT) {
-                    console.log('Processing wait time natively...');
-                    fs.writeFileSync("timestamp", remainingSeconds.toString());
+                    fs.writeFileSync('timestamp', remainingSeconds.toString());
                     return;
                 }
                 console.log(`${Colours.GREEN}Ready to claim again in ${Colours.CYAN}${hours}${Colours.RESET} hours ${Colours.CYAN}${minutes}${Colours.RESET} minutes ${Colours.CYAN}${seconds}${Colours.RESET} seconds ⏱️`);
@@ -127,7 +126,7 @@ async function getRemainingTimer(page) {
         // Wait to verify logged in successfully and proceed
         if (await page.$('.sc-jSFipO.hpiezR')) {
             console.log('Logged into Honeygain 🐝');
-            console.log(`${Colours.YELLOW}--------------------------------------------------${Colours.RESET}\n`);
+            console.log(BANNER);
 
             await getWalletType(page);
             await api.claimPotReward(accessToken);
@@ -137,11 +136,11 @@ async function getRemainingTimer(page) {
             await getRemainingTimer(page);
         } else {
             console.log('Couldn\'t log into Honeygain 🐝');
-            console.log(`${Colours.YELLOW}--------------------------------------------------${Colours.RESET}\n`);
+            console.log(BANNER);
         }
     } catch (error) {
         console.error(`An error occurred: ${error.message}`);
-        process.exit(1)
+        process.exit(1);
     } finally {
         await browser.close();
     }

@@ -13,7 +13,10 @@ class Endpoint {
     static BALANCE = '/users/balances';
 }
 
+const BANNER = `${Colours.YELLOW}--------------------------------------------------${Colours.RESET}\n`
+
 module.exports = {
     Colours,
-    Endpoint
+    Endpoint,
+    BANNER
 };
