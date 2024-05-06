@@ -4,7 +4,7 @@ const api = require('./modules/api');
 const fs = require('fs');
 require('dotenv').config();
 
-const NAVIGATION_TIMEOUT = 20;
+const NAVIGATION_TIMEOUT = 40;
 const URL = 'https://dashboard.honeygain.com/login'
 const EMAIL = process.env.EMAIL;
 const PASSWORD = process.env.PASSWORD;
