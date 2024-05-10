@@ -18,4 +18,4 @@ ENV PROCESS_WAIT=true
 COPY . ./
 
 # Bootstrap
-CMD while true; do sh run.sh; sleep 30; done
+CMD while true; do sh run.sh; sleep 60; done

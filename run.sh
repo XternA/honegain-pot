@@ -33,9 +33,9 @@ while true; do
     fi
 
     if [ $exit_code -eq 2 ]; then
-        printf "Re-attempting again in ${CYAN}2${RESET} hours ⏱️\n"
+        printf "Re-attempting again in ${CYAN}1${RESET} hour ⏱️\n"
         printf "Time logged: ${YELLOW}$(date +"%H:%M:%S")${RESET}\n"
-        sleep 7200
+        sleep 1800
     elif [ $exit_code -eq 1 ]; then
         printf "${RED}Honeygain exited with code ${CYAN}1${RED}.${RESET} ❌\n"
         printf "Re-attempting again in ${CYAN}2${RESET} hours ⏱️\n"
