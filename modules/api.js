@@ -27,7 +27,7 @@ async function getAccessToken(email, password) {
         console.error('Couldn\'t log into Honeygain 🐝');
         const errorMsg = error.message
 
-        if(errorMsg.includes('400')) {
+        if(errorMsg.includes('401')) {
             console.error('Email and password is incorrect or not supplied \nCheck credentials and try again');
             console.log(BANNER);
             process.exit(1);

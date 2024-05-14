@@ -140,6 +140,7 @@ async function getRemainingTimer(page) {
         }
     } catch (error) {
         console.error(`An error occurred: ${error.message}`);
+        console.log(BANNER);
         process.exit(1);
     } finally {
         await browser.close();

@@ -14,6 +14,7 @@ COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 
 ENV PROCESS_WAIT=true
+ENV IS_CONTAINER=true
 
 COPY . ./
 
